@@ -1,4 +1,4 @@
-defmodule GogeCore do
+defmodule GoGeCore do
   @repo GoGeCore.Repo
 
   def get_locations(), do: GoGeCore.Location.values()
@@ -9,6 +9,18 @@ defmodule GogeCore do
       name: name,
       phone: phone
     })
+    |> @repo.insert()
+  end
+
+  def create_trip(driver_id, departure_id, destination_id, departure_datetime, capacity) do
+    params = %{
+      driver_id: driver_id,
+      departure_id: departure_id,
+      destination_id: destination_id,
+      departure_datetime: departure_datetime,
+      capacity: capacity
+    }
+    GoGeCore.Trip.changeset(%GoGeCore.Trip{}, params)
     |> @repo.insert()
   end
 end
