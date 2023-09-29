@@ -23,4 +23,9 @@ defmodule GoGeCore do
     GoGeCore.Trip.changeset(%GoGeCore.Trip{}, params)
     |> @repo.insert()
   end
+
+  def delete_trip(trip_id) do
+    @repo.get(GoGeCore.Trip, trip_id)
+    |> @repo.delete()
+  end
 end
