@@ -20,7 +20,7 @@ import Config
 config :goge_core, ecto_repos: [GoGeCore.Repo]
 
 config :goge_core, GoGeCore.Repo,
-       database: "goge_dev",
-       username: "postgres",
-       password: "postgres",
-       hostname: "127.0.0.1"
+  database: "goge_dev",
+  username: "postgres",
+  password: "postgres",
+  hostname: "127.0.0.1"

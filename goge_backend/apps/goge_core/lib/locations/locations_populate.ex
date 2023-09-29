@@ -12,6 +12,7 @@ defmodule GoGeCore.Location.PopulateService do
   def handle_continue(:populate_table, _) do
     GoGeCore.Location.values()
     |> Enum.each(fn x -> @repo.insert(x, on_conflict: :nothing) end)
+
     {:noreply, nil}
   end
 end
