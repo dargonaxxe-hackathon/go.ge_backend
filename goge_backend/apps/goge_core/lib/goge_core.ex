@@ -1,18 +1,14 @@
 defmodule GogeCore do
-  @moduledoc """
-  Documentation for `GogeCore`.
-  """
+  @repo GoGeCore.Repo
 
-  @doc """
-  Hello world.
+  def get_locations(), do: GoGeCore.Location.values()
 
-  ## Examples
-
-      iex> GogeCore.hello()
-      :world
-
-  """
-  def hello do
-    :world
+  def create_driver(name, phone) do
+    %GoGeCore.Driver{}
+    |> GoGeCore.Driver.changeset(%{
+      name: name,
+      phone: phone
+    })
+    |> @repo.insert()
   end
 end

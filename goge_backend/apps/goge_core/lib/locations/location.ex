@@ -5,7 +5,7 @@ defmodule GoGeCore.Location do
 
   # todo localization
   schema "location" do
-    field :name, :string
+    field(:name, :string)
   end
 
   def values() do
