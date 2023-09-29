@@ -5,7 +5,8 @@ defmodule GoGeCore.Application do
   @impl Application
   def start(_, _) do
     children = [
-      {GoGeCore.Repo, []}
+      {GoGeCore.Repo, []},
+      {GoGeCore.Location.PopulateService, []}
     ]
 
     Supervisor.start_link(children, strategy: :one_for_one)
