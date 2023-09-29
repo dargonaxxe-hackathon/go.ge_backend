@@ -2,7 +2,7 @@ defmodule GoGe.Core.Trip do
   use Ecto.Schema
 
   schema "trips" do
-    belongs_to(:driver, GoGe.Core.Driver)
+    belongs_to(:user, GoGe.Core.User)
     field(:departure_id, :id)
     field(:destination_id, :id)
     field(:departure_datetime, :naive_datetime)

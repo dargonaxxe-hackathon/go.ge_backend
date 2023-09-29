@@ -6,8 +6,8 @@ defmodule GoGe.Core do
   def get_location(id), do: @repo.get(GoGe.Core.Location, id)
 
   def create_driver(name, phone) do
-    %GoGe.Core.Driver{}
-    |> GoGe.Core.Driver.changeset(%{
+    %GoGe.Core.User{}
+    |> GoGe.Core.User.changeset(%{
       name: name,
       phone: phone
     })

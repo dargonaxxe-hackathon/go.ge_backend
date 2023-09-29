@@ -1,9 +1,9 @@
-defmodule GoGe.Core.Driver do
+defmodule GoGe.Core.User do
   @moduledoc false
   use Ecto.Schema
   import Ecto.Changeset
 
-  schema "driver" do
+  schema "user" do
     field(:name, :string)
     field(:phone, :string)
     timestamps()
