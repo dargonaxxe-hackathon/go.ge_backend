@@ -4,7 +4,7 @@ defmodule GoGeCore.Location do
   use Ecto.Schema
 
   # todo localization
-  schema "location" do
+  schema "locations" do
     field(:name, :string)
   end
 
