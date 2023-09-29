@@ -1,4 +1,4 @@
-defmodule GoGeCore.Driver do
+defmodule GoGe.Core.Driver do
   @moduledoc false
   use Ecto.Schema
   import Ecto.Changeset

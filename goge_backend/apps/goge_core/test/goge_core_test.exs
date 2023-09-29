@@ -1,8 +1,8 @@
-defmodule GogeCoreTest do
+defmodule GoGe.CoreTest do
   use ExUnit.Case
-  doctest GogeCore
+  doctest GoGe.Core
 
   test "greets the world" do
-    assert GogeCore.hello() == :world
+    assert GoGe.Core.hello() == :world
   end
 end

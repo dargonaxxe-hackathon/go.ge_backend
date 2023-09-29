@@ -1,4 +1,4 @@
-# GogeCore
+# GoGe.Core
 
 **TODO: Add description**
 

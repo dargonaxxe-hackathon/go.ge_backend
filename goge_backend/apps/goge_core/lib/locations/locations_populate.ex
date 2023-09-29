@@ -1,7 +1,7 @@
-defmodule GoGeCore.Location.PopulateService do
+defmodule GoGe.Core.Location.PopulateService do
   @moduledoc false
   use GenServer
-  @repo GoGeCore.Repo
+  @repo GoGe.Core.Repo
 
   @impl GenServer
   def init(_), do: {:ok, nil, {:continue, :populate_table}}
@@ -10,7 +10,7 @@ defmodule GoGeCore.Location.PopulateService do
 
   @impl GenServer
   def handle_continue(:populate_table, _) do
-    GoGeCore.Location.values()
+    GoGe.Core.Location.values()
     |> Enum.each(fn x -> @repo.insert(x, on_conflict: :nothing) end)
 
     {:noreply, nil}

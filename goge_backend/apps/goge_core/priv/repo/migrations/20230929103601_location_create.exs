@@ -1,4 +1,4 @@
-defmodule GoGeCore.Repo.Migrations.LocationCreate do
+defmodule GoGe.Core.Repo.Migrations.LocationCreate do
   use Ecto.Migration
 
   def change do

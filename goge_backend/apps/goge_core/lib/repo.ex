@@ -1,4 +1,4 @@
-defmodule GoGeCore.Repo do
+defmodule GoGe.Core.Repo do
   use Ecto.Repo,
     otp_app: :goge_core,
     adapter: Ecto.Adapters.Postgres

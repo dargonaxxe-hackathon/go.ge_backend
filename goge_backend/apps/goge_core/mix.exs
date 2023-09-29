@@ -1,4 +1,4 @@
-defmodule GogeCore.MixProject do
+defmodule GoGe.Core.MixProject do
   use Mix.Project
 
   def project do
@@ -18,7 +18,7 @@ defmodule GogeCore.MixProject do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      mod: {GoGeCore.Application, []},
+      mod: {GoGe.Core.Application, []},
       extra_applications: [:logger]
     ]
   end

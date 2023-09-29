@@ -1,4 +1,4 @@
-defmodule :"Elixir.GoGeCore.Repo.Migrations.TripCreate-table" do
+defmodule :"Elixir.GoGe.Core.Repo.Migrations.TripCreate-table" do
   use Ecto.Migration
 
   def change do

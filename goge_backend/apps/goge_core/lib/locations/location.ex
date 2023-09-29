@@ -1,4 +1,4 @@
-defmodule GoGeCore.Location do
+defmodule GoGe.Core.Location do
   @moduledoc false
 
   use Ecto.Schema

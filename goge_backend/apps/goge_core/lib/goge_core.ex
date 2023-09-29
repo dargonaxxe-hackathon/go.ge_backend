@@ -1,11 +1,11 @@
-defmodule GoGeCore do
-  @repo GoGeCore.Repo
+defmodule GoGe.Core do
+  @repo GoGe.Core.Repo
 
-  def get_locations(), do: GoGeCore.Location.values()
+  def get_locations(), do: GoGe.Core.Location.values()
 
   def create_driver(name, phone) do
-    %GoGeCore.Driver{}
-    |> GoGeCore.Driver.changeset(%{
+    %GoGe.Core.Driver{}
+    |> GoGe.Core.Driver.changeset(%{
       name: name,
       phone: phone
     })
@@ -21,12 +21,12 @@ defmodule GoGeCore do
       capacity: capacity
     }
 
-    GoGeCore.Trip.changeset(%GoGeCore.Trip{}, params)
+    GoGe.Core.Trip.changeset(%GoGe.Core.Trip{}, params)
     |> @repo.insert()
   end
 
   def delete_trip(trip_id) do
-    @repo.get(GoGeCore.Trip, trip_id)
+    @repo.get(GoGe.Core.Trip, trip_id)
     |> @repo.delete()
   end
 
@@ -37,7 +37,7 @@ defmodule GoGeCore do
     end_time = NaiveDateTime.end_of_day(date)
 
     query =
-      from(t in GoGeCore.Trip,
+      from(t in GoGe.Core.Trip,
         where: t.departure_datetime <= ^end_time and t.departure_datetime >= ^begin_time,
         select: t
       )

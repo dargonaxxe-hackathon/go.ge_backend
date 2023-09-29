@@ -1,4 +1,4 @@
-defmodule :"Elixir.GoGeCore.Repo.Migrations.DriverCreate-table" do
+defmodule :"Elixir.GoGe.Core.Repo.Migrations.DriverCreate-table" do
   use Ecto.Migration
 
   def change do
