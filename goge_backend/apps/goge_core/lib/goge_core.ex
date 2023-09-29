@@ -40,7 +40,7 @@ defmodule GoGe.Core do
 
     query =
       from(t in GoGe.Core.Trip,
-        where: t.departure_datetime <= ^end_time and t.departure_datetime >= ^begin_time,
+        where: t.departure_datetime <= ^end_time and t.departure_datetime >= ^begin_time and t.departure_id == ^departure_id and t.destination_id == ^destination_id,
         select: t
       )
 

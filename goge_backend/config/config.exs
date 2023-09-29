@@ -30,9 +30,9 @@ config :goge_web, GoGe.Web.Endpoint,
 #       metadata: [:user_id]
 #
 
-config :goge_core, ecto_repos: [GoGeCore.Repo]
+config :goge_core, ecto_repos: [GoGe.Core.Repo]
 
-config :goge_core, GoGeCore.Repo,
+config :goge_core, GoGe.Core.Repo,
   database: "goge_dev",
   username: "postgres",
   password: "postgres",
