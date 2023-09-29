@@ -7,4 +7,12 @@ defmodule GoGe.Core.Booking do
     field(:trip_id, :id)
     field(:status, Ecto.Enum, values: [:pending, :rejected, :declined, :accepted])
   end
+
+  import Ecto.Changeset
+
+  def changeset(booking, params) do
+    booking
+    |> cast(params, [:passenger_id, :trip_id, :status])
+    |> validate_required([:passenger_id, :trip_id])
+  end
 end
