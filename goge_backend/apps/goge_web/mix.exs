@@ -23,7 +23,7 @@ defmodule GoGe.Web.MixProject do
   def application do
     [
       mod: {GoGe.Web.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :goge_core]
     ]
   end
 
@@ -41,7 +41,8 @@ defmodule GoGe.Web.MixProject do
       {:telemetry_poller, "~> 1.0"},
       {:gettext, "~> 0.20"},
       {:jason, "~> 1.2"},
-      {:plug_cowboy, "~> 2.5"}
+      {:plug_cowboy, "~> 2.5"},
+      {:goge_core, in_umbrella: true}
     ]
   end
 

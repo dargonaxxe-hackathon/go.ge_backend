@@ -1,7 +1,9 @@
 defmodule GoGe.Core do
   @repo GoGe.Core.Repo
 
-  def get_locations(), do: GoGe.Core.Location.values()
+  def get_locations(), do: @repo.all(GoGe.Core.Location)
+
+  def get_location(id), do: @repo.get(GoGe.Core.Location, id)
 
   def create_driver(name, phone) do
     %GoGe.Core.Driver{}
