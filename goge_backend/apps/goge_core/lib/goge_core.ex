@@ -45,4 +45,7 @@ defmodule GoGe.Core do
 
   def get_incoming_bookings(user_id),
     do: GoGe.Core.Booking.UseCase.GetIncomingBookings.execute(user_id)
+
+  def approve_booking(booking_id),
+    do: GoGe.Core.Booking.UseCase.ApproveBooking.execute(booking_id)
 end
