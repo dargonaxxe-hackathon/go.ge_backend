@@ -9,21 +9,17 @@ defmodule GoGe.Core.Trip.UseCase.CreateTrip do
     {:ok, trip} = GoGe.Core.Trip.changeset(%GoGe.Core.Trip{}, trip_params) |> @repo.insert()
     route_params = prepare_route_params(trip.id)
     {:ok, route} = GoGe.Core.Route.changeset(%GoGe.Core.Route{}, route_params) |> @repo.insert()
-    iterate(route_links, route.id, 0)
+    links = iterate(route_links, route.id, 0, [])
+    @repo.insert_all(GoGe.Core.Route.Link, links)
     {:ok, trip}
   end
 
-  defp iterate([_], _, _), do: :ok
-
-  defp iterate([departure_id | tail], route_id, index) do
+  defp iterate([_], _, _, result), do: result
+  defp iterate([departure_id | tail], route_id, index, result) do
     [destination_id | _] = tail
     params = prepare_link_params(route_id, departure_id, destination_id, index)
 
-    {:ok, _} =
-      GoGe.Core.Route.Link.changeset(%GoGe.Core.Route.Link{}, params)
-      |> @repo.insert()
-
-    iterate(tail, route_id, index + 1)
+    iterate(tail, route_id, index + 1, [params | result])
   end
 
   defp prepare_link_params(route_id, departure_id, destination_id, index) do
@@ -35,11 +31,7 @@ defmodule GoGe.Core.Trip.UseCase.CreateTrip do
     }
   end
 
-  defp prepare_route_params(trip_id) do
-    %{
-      trip_id: trip_id
-    }
-  end
+  defp prepare_route_params(trip_id), do: %{trip_id: trip_id}
 
   defp prepare_trip_params(driver_id, departure_datetime, capacity, wallet_address, amount) do
     %{
