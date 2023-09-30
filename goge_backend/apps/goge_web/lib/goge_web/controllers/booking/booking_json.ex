@@ -1,6 +1,8 @@
 defmodule GoGe.Web.BookingJSON do
   @moduledoc false
 
+  def approve(%{}), do: %{success: true}
+
   def incoming(%{result: result}) do
     Enum.map(result, fn {trip, bookings, links} -> map_incoming(trip, bookings, links) end)
   end

@@ -8,4 +8,11 @@ defmodule GoGe.Web.BookingController do
       render(conn, :incoming, result: result)
     end
   end
+
+  def approve(conn, params) do
+    with booking_id <- params["booking_id"],
+         {:ok, _} <- GoGe.Core.approve_booking(booking_id) do
+      render(conn, :approve)
+    end
+  end
 end

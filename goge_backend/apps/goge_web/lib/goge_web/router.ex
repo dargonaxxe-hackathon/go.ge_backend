@@ -13,5 +13,6 @@ defmodule GoGe.Web.Router do
     post "/trip/lookup", TripController, :lookup
     post "/user/", UserController, :create
     post "/booking/incoming/", BookingController, :incoming
+    post "/booking/approve/", BookingController, :approve
   end
 end
