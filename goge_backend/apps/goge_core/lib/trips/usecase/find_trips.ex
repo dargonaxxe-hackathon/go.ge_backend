@@ -13,7 +13,8 @@ defmodule GoGe.Core.UseCase.FindTrips do
       @repo.all(
         from(
           t in GoGe.Core.Trip,
-          where: t.departure_datetime > ^beginning_of_day and t.departure_datetime < ^end_of_day
+          where: t.departure_datetime > ^beginning_of_day and t.departure_datetime < ^end_of_day,
+          preload: [:user]
         )
       )
 
@@ -34,7 +35,8 @@ defmodule GoGe.Core.UseCase.FindTrips do
       |> hd()
 
     route = Enum.find(routes, fn route -> route.id == link.route_id end)
-    Enum.find(trips, fn trip -> trip.id == route.id end)
+    trip = Enum.find(trips, fn trip -> trip.id == route.trip_id end)
+    {trip, links}
   end
 
   defp matches?([], departure_id, destination_id), do: false

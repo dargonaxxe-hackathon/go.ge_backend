@@ -19,4 +19,13 @@ defmodule GoGe.Web.TripController do
       render(conn, :delete)
     end
   end
+
+  def lookup(conn, params) do
+    with departure_id <- params["departure_id"],
+         destination_id <- params["destination_id"],
+         date <- Helpers.convert_date(params["date"]),
+         result <- GoGe.Core.get_trips(departure_id, destination_id, date) do
+      render(conn, :lookup, trips: result)
+    end
+  end
 end

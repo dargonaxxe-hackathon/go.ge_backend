@@ -10,5 +10,6 @@ defmodule GoGe.Web.Router do
     get "/locations", LocationController, :index
     post "/trip/create", TripController, :create
     post "/trip/delete", TripController, :delete
+    post "/trip/lookup", TripController, :lookup
   end
 end
