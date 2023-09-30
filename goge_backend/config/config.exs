@@ -20,7 +20,14 @@ config :goge_web, GoGe.Web.Endpoint,
     layout: false
   ],
   pubsub_server: GoGe.Web.PubSub,
-  live_view: [signing_salt: "o9j687mo"]
+  live_view: [signing_salt: "o9j687mo"],
+  https: [
+    port: 443,
+    cipher_suite: :strong,
+    otp_app: :goge_web,
+    keyfile: System.get_env("GOGE_SSL_KEY_PATH"),
+    certfile: System.get_env("GOGE_SSL_CERT_PATH")
+  ]
 
 # Sample configuration:
 #

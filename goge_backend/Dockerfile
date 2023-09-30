@@ -22,6 +22,8 @@ ENV PORT=4000
 ENV DB_HOST=172.17.0.2
 ENV DB_USER=postgres
 ENV DB_PASSWORD=postgres
+ENV GOGE_SSL_KEY_PATH=/cert/goge.dargonaxxe.com/fullchain.pem
+ENV GOGE_SSL_CERT_PATH=/cert/goge.dargonaxxe.com/privkey.pem
 
 # Expose ports
 EXPOSE $PORT
