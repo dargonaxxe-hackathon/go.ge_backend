@@ -3,8 +3,6 @@ defmodule GoGe.Core.Trip do
 
   schema "trips" do
     belongs_to(:user, GoGe.Core.User)
-    field(:departure_id, :id)
-    field(:destination_id, :id)
     field(:departure_datetime, :naive_datetime)
     field(:capacity, :integer)
 
@@ -13,7 +11,7 @@ defmodule GoGe.Core.Trip do
 
   import Ecto.Changeset
 
-  @fields [:user_id, :departure_id, :destination_id, :departure_datetime, :capacity]
+  @fields [:user_id, :departure_datetime, :capacity]
 
   def changeset(trip, params) do
     trip
