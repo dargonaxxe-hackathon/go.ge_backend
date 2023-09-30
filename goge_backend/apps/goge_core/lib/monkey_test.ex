@@ -24,7 +24,7 @@ defmodule MonkeyTest do
     [location_two | tail] = tail
     [location_three | _] = tail
     route = [location_one.id, location_two.id, location_three.id]
-    departure_datetime = NaiveDateTime.utc_now()
+    departure_datetime = NaiveDateTime.add(NaiveDateTime.utc_now(), 7, :day)
     capacity = 3
     GoGe.Core.create_trip(driver.id, route, departure_datetime, capacity)
   end

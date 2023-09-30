@@ -31,4 +31,6 @@ defmodule GoGe.Core do
     GoGe.Core.Booking.changeset(%GoGe.Core.Booking{}, params)
     |> @repo.insert()
   end
+
+  def get_incoming_bookings(user_id), do: GoGe.Core.Booking.UseCase.GetIncomingBookings.execute(user_id)
 end
