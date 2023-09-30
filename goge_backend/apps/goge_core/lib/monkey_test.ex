@@ -11,7 +11,7 @@ defmodule MonkeyTest do
 
     [a | tail] = @core.get_trips(1, 3, NaiveDateTime.utc_now())
     IO.puts(inspect(a))
-    
+
     {:ok, _} = @core.create_booking(driver.id, trip.id)
     {:ok, _} = @core.delete_trip(trip.id)
   end

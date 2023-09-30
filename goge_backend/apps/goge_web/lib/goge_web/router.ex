@@ -7,6 +7,6 @@ defmodule GoGe.Web.Router do
 
   scope "/api", GoGe.Web do
     pipe_through :api
-    resources "/locations", LocationController
+    get "/locations", LocationController, :index
   end
 end
