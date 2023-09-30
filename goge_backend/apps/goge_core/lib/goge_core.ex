@@ -52,4 +52,6 @@ defmodule GoGe.Core do
   def get_published_trips(user_id), do: GoGe.Core.GetPublishedTrips.execute(user_id)
 
   def get_outcoming_bookings(user_id), do: GoGe.Core.UseCase.GetOutcomingBookings.execute(user_id)
+
+  def reject_booking(booking_id), do: GoGe.Core.UseCase.RejectBooking.execute(booking_id)
 end
