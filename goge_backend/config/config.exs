@@ -34,9 +34,9 @@ config :goge_core, ecto_repos: [GoGe.Core.Repo]
 
 config :goge_core, GoGe.Core.Repo,
   database: "goge_dev",
-  username: "postgres",
-  password: "postgres",
-  hostname: "127.0.0.1",
+  username: System.get_env("DB_PASSWORD"),
+  password: System.get_env("DB_USER"),
+  hostname: System.get_env("DB_HOST"),
   log: false
 
 # Configures Elixir's Logger
