@@ -3,7 +3,7 @@ defmodule GoGe.Core.User do
   use Ecto.Schema
   import Ecto.Changeset
 
-  schema "user" do
+  schema "users" do
     field(:name, :string)
     field(:phone, :string)
     timestamps()

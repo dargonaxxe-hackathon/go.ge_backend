@@ -13,7 +13,7 @@ defmodule GoGe.Core.Trip do
 
   import Ecto.Changeset
 
-  @fields [:driver_id, :departure_id, :destination_id, :departure_datetime, :capacity]
+  @fields [:user_id, :departure_id, :destination_id, :departure_datetime, :capacity]
 
   def changeset(trip, params) do
     trip
