@@ -12,11 +12,15 @@ defmodule GoGe.Core.Trip.UseCase.CreateTrip do
   end
 
   defp iterate([_], _, _), do: :ok
+
   defp iterate([departure_id | tail], route_id, index) do
     [destination_id | _] = tail
     params = prepare_link_params(route_id, departure_id, destination_id, index)
-    {:ok, _} = GoGe.Core.Route.Link.changeset(%GoGe.Core.Route.Link{}, params)
-    |> @repo.insert()
+
+    {:ok, _} =
+      GoGe.Core.Route.Link.changeset(%GoGe.Core.Route.Link{}, params)
+      |> @repo.insert()
+
     iterate(tail, route_id, index + 1)
   end
 

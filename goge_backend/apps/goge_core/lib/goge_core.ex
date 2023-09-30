@@ -19,21 +19,8 @@ defmodule GoGe.Core do
 
   def delete_trip(trip_id), do: GoGe.Core.Trip.UseCase.DeleteTrip.execute(trip_id)
 
-  def get_trips(_departure_id, _destination_id, _date) do
-    :todo
-#    begin_time = NaiveDateTime.beginning_of_day(date)
-#    end_time = NaiveDateTime.end_of_day(date)
-#
-#    query =
-#      from(t in GoGe.Core.Trip,
-#        where:
-#          t.departure_datetime <= ^end_time and t.departure_datetime >= ^begin_time and
-#            t.departure_id == ^departure_id and t.destination_id == ^destination_id,
-#        select: t
-#      )
-#
-#    @repo.all(query)
-  end
+  def get_trips(departure_id, destination_id, date),
+    do: GoGe.Core.UseCase.FindTrips.execute(departure_id, destination_id, date)
 
   def create_booking(passenger_id, trip_id) do
     params = %{
