@@ -30,6 +30,8 @@ RUN apt install cpulimit
 RUN mix deps.get
 RUN mix local.hex --force
 RUN cpulimit -l 25 mix compile
+RUN mix ecto.create
+RUN mix ecto.migrate
 
 # Command to start the application
 CMD ["iex", "-S", "mix", "phx.server"]
