@@ -26,7 +26,7 @@ defmodule GoGe.Web.BookingController do
   def create(conn, params) do
     with passenger_id <- params["user_id"],
          trip_id <- params["trip_id"],
-         result <- GoGe.Core.create_booking(passenger_id, trip_id) do
+         {:ok, _} <- GoGe.Core.create_booking(passenger_id, trip_id) do
       render(conn, :create)
     end
   end
