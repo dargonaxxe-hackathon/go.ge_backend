@@ -31,4 +31,11 @@ defmodule GoGe.Web.TripController do
       render(conn, :lookup, trips: result)
     end
   end
+
+  def published(conn, params) do
+    with user_id <- params["user_id"],
+         result <- GoGe.Core.get_published_trips(user_id) do
+      render(conn, :published, result: result)
+    end
+  end
 end

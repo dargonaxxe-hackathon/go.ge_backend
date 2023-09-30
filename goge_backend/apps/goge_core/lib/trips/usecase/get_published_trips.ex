@@ -10,7 +10,7 @@ defmodule GoGe.Core.GetPublishedTrips do
     @repo.all(
       from(t in GoGe.Core.Trip,
         where: t.user_id == ^user_id and t.departure_datetime > ^now,
-        preload: [:route]
+        preload: [:route, :user]
       )
     )
     |> Enum.map(fn trip -> map_trip(trip) end)
