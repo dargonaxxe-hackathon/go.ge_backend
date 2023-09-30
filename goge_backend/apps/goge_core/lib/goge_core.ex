@@ -16,7 +16,7 @@ defmodule GoGe.Core do
 
   def create_trip(driver_id, departure_id, destination_id, departure_datetime, capacity) do
     params = %{
-      driver_id: driver_id,
+      user_id: driver_id,
       departure_id: departure_id,
       destination_id: destination_id,
       departure_datetime: departure_datetime,
@@ -47,5 +47,14 @@ defmodule GoGe.Core do
       )
 
     @repo.all(query)
+  end
+
+  def create_booking(passenger_id, trip_id) do
+    params = %{
+      passenger_id: passenger_id,
+      trip_id: trip_id
+    }
+    GoGe.Core.Booking.changeset(%GoGe.Core.Booking{}, params)
+    |> @repo.insert()
   end
 end
