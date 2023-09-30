@@ -12,4 +12,11 @@ defmodule GoGe.Web.TripController do
       render(conn, :create, trip_id: result.id)
     end
   end
+
+  def delete(conn, params) do
+    with trip_id <- params["trip_id"],
+         {:ok, _} <- GoGe.Core.delete_trip(trip_id) do
+      render(conn, :delete)
+    end
+  end
 end

@@ -1,0 +1,1 @@
+curl -X POST -H "Content-Type: application/json" -d '{"trip_id": 83}' localhost:4000/api/trip/delete

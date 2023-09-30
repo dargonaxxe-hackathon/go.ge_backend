@@ -9,5 +9,6 @@ defmodule GoGe.Web.Router do
     pipe_through :api
     get "/locations", LocationController, :index
     post "/trip/create", TripController, :create
+    post "/trip/delete", TripController, :delete
   end
 end
