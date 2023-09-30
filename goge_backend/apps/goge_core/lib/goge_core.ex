@@ -5,13 +5,15 @@ defmodule GoGe.Core do
 
   def get_location(id), do: @repo.get(GoGe.Core.Location, id)
 
+  def create_user(user_id, name, phone), do: GoGe.Core.User.UseCase.CreateUser.execute(user_id, name, phone)
+
   def create_driver(name, phone) do
-    %GoGe.Core.User{}
-    |> GoGe.Core.User.changeset(%{
-      name: name,
-      phone: phone
-    })
-    |> @repo.insert()
+#    %GoGe.Core.User{}
+#    |> GoGe.Core.User.changeset(%{
+#      name: name,
+#      phone: phone
+#    })
+#    |> @repo.insert()
   end
 
   def create_trip(driver_id, route, departure_datetime, capacity),

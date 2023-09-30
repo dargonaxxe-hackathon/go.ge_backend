@@ -11,7 +11,7 @@ defmodule GoGe.Core.User do
 
   def changeset(driver, attrs) do
     driver
-    |> cast(attrs, [:name, :phone])
-    |> validate_required([:name, :phone])
+    |> cast(attrs, [:name, :phone, :id])
+    |> validate_required([:name, :phone, :id])
   end
 end
