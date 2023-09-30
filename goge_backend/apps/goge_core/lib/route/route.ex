@@ -7,4 +7,13 @@ defmodule GoGe.Core.Route do
     has_many(:link, GoGe.Core.Route.Link)
     timestamps()
   end
+
+  @fields [:trip_id]
+  import Ecto.Changeset
+
+  def changeset(route, params) do
+    route
+    |> cast(params, @fields)
+    |> validate_required(@fields)
+  end
 end
