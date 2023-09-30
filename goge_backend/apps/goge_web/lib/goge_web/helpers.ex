@@ -14,7 +14,9 @@ defmodule GoGe.Web.Helpers do
         phone: trip.user.phone
       },
       datetime: trip.departure_datetime,
-      route: map_links(links, [])
+      route: map_links(links, []),
+      wallet: trip.wallet_address,
+      cost: trip.cost
     }
   end
 
