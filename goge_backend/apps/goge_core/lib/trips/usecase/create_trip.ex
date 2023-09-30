@@ -8,6 +8,7 @@ defmodule GoGe.Core.Trip.UseCase.CreateTrip do
     route_params = prepare_route_params(trip.id)
     {:ok, route} = GoGe.Core.Route.changeset(%GoGe.Core.Route{}, route_params) |> @repo.insert()
     iterate(route_links, route.id, 0)
+    {:ok, trip}
   end
 
   defp iterate([_], _, _), do: :ok

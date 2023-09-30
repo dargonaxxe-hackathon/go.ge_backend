@@ -17,26 +17,22 @@ defmodule GoGe.Core do
   def create_trip(driver_id, route, departure_datetime, capacity),
     do: GoGe.Core.Trip.UseCase.CreateTrip.execute(driver_id, route, departure_datetime, capacity)
 
-  def delete_trip(trip_id) do
-    @repo.get(GoGe.Core.Trip, trip_id)
-    |> @repo.delete()
-  end
+  def delete_trip(trip_id), do: GoGe.Core.Trip.UseCase.DeleteTrip.execute(trip_id)
 
-  import Ecto.Query
-
-  def get_trips(departure_id, destination_id, date) do
-    begin_time = NaiveDateTime.beginning_of_day(date)
-    end_time = NaiveDateTime.end_of_day(date)
-
-    query =
-      from(t in GoGe.Core.Trip,
-        where:
-          t.departure_datetime <= ^end_time and t.departure_datetime >= ^begin_time and
-            t.departure_id == ^departure_id and t.destination_id == ^destination_id,
-        select: t
-      )
-
-    @repo.all(query)
+  def get_trips(_departure_id, _destination_id, _date) do
+    :todo
+#    begin_time = NaiveDateTime.beginning_of_day(date)
+#    end_time = NaiveDateTime.end_of_day(date)
+#
+#    query =
+#      from(t in GoGe.Core.Trip,
+#        where:
+#          t.departure_datetime <= ^end_time and t.departure_datetime >= ^begin_time and
+#            t.departure_id == ^departure_id and t.destination_id == ^destination_id,
+#        select: t
+#      )
+#
+#    @repo.all(query)
   end
 
   def create_booking(passenger_id, trip_id) do

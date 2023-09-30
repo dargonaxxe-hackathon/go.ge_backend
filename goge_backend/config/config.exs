@@ -36,7 +36,8 @@ config :goge_core, GoGe.Core.Repo,
   database: "goge_dev",
   username: "postgres",
   password: "postgres",
-  hostname: "127.0.0.1"
+  hostname: "127.0.0.1",
+  log: false
 
 # Configures Elixir's Logger
 config :logger, :console,
