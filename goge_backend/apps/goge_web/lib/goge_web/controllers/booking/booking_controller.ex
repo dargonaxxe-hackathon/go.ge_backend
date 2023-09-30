@@ -23,4 +23,11 @@ defmodule GoGe.Web.BookingController do
       render(conn, :create)
     end
   end
+
+  def outcoming(conn, params) do
+    with user_id <- params["user_id"],
+         result <- GoGe.Core.get_outcoming_bookings(user_id) do
+      render(conn, :outcoming, result: result)
+    end
+  end
 end

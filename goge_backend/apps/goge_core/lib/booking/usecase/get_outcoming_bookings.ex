@@ -16,7 +16,7 @@ defmodule GoGe.Core.UseCase.GetOutcomingBookings do
   defp map_booking(booking) do
     trip =
       @repo.get(GoGe.Core.Trip, booking.trip_id)
-      |> @repo.preload([:route])
+      |> @repo.preload([:route, :user])
 
     links = @repo.all(from(l in GoGe.Core.Route.Link, where: l.route_id == ^trip.route.id))
     {booking, trip, links}

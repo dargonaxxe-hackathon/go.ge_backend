@@ -1,6 +1,10 @@
 defmodule GoGe.Web.BookingJSON do
   @moduledoc false
 
+  def outcoming(%{result: result}) do
+    Enum.map(result, fn {booking, trip, links} -> map_outcoming(trip, booking, links) end)
+  end
+
   def create(%{}), do: %{success: true}
 
   def approve(%{}), do: %{success: true}
@@ -10,6 +14,14 @@ defmodule GoGe.Web.BookingJSON do
   end
 
   alias GoGe.Web.Helpers
+
+  defp map_outcoming(trip, booking, links) do
+    %{
+      id: booking.id,
+      status: booking.status,
+      trip: Helpers.map_trip(trip, links)
+    }
+  end
 
   defp map_incoming(trip, bookings, links) do
     %{
