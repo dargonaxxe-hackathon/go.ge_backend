@@ -16,8 +16,8 @@ defmodule GoGe.Core do
 #    |> @repo.insert()
   end
 
-  def create_trip(driver_id, route, departure_datetime, capacity),
-    do: GoGe.Core.Trip.UseCase.CreateTrip.execute(driver_id, route, departure_datetime, capacity)
+  def create_trip(driver_id, route, departure_datetime, capacity, wallet_address, amount),
+    do: GoGe.Core.Trip.UseCase.CreateTrip.execute(driver_id, route, departure_datetime, capacity, wallet_address, amount)
 
   def delete_trip(trip_id), do: GoGe.Core.Trip.UseCase.DeleteTrip.execute(trip_id)
 

@@ -2,8 +2,8 @@ defmodule GoGe.Core.Trip.UseCase.CreateTrip do
   @moduledoc false
   @repo GoGe.Core.Repo
 
-  def execute(driver_id, route_links, departure_datetime, capacity) do
-    trip_params = prepare_trip_params(driver_id, departure_datetime, capacity)
+  def execute(driver_id, route_links, departure_datetime, capacity, wallet_address, amount) do
+    trip_params = prepare_trip_params(driver_id, departure_datetime, capacity, wallet_address, amount)
     {:ok, trip} = GoGe.Core.Trip.changeset(%GoGe.Core.Trip{}, trip_params) |> @repo.insert()
     route_params = prepare_route_params(trip.id)
     {:ok, route} = GoGe.Core.Route.changeset(%GoGe.Core.Route{}, route_params) |> @repo.insert()
@@ -39,11 +39,13 @@ defmodule GoGe.Core.Trip.UseCase.CreateTrip do
     }
   end
 
-  defp prepare_trip_params(driver_id, departure_datetime, capacity) do
+  defp prepare_trip_params(driver_id, departure_datetime, capacity, wallet_address, amount) do
     %{
       user_id: driver_id,
       departure_datetime: departure_datetime,
-      capacity: capacity
+      capacity: capacity,
+      wallet_address: wallet_address,
+      cost: amount
     }
   end
 end
