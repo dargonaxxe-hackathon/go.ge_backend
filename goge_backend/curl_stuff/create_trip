@@ -1,0 +1,1 @@
+curl -X POST -H "Content-Type: application/json" -d '{"driver_id": 2, "route": [1, 2, 3, 4, 5], "departure_datetime": "2024-02-12 14:00:00", "capacity": 4}' localhost:4000/api/trip/create
