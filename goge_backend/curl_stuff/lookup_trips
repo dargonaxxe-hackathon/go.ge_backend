@@ -1,1 +1,1 @@
-curl -X POST -H "Content-Type: application/json" -d '{"departure_id": 1, "destination_id": 2, "date": "2024-02-12"}' localhost:4000/api/trip/lookup
+curl -v -H "Origin: https://goge.dargonaxxe.com" -H "Content-Type: application/json" -d '{"departure_id": 1, "destination_id": 2, "date": "2024-02-12"}' localhost:4000/api/trip/lookup

@@ -1,5 +1,6 @@
 defmodule GoGe.Web.Endpoint do
   use Phoenix.Endpoint, otp_app: :goge_web
+  plug CORSPlug, origin: ["*", ~r/https?.*example\d?\.com$/]
 
   # The session will be stored in the cookie and signed,
   # this means its contents can be read but not tampered with.
