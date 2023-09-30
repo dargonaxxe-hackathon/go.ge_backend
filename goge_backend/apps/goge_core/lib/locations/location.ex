@@ -12,19 +12,35 @@ defmodule GoGe.Core.Location do
     [
       %__MODULE__{
         id: 1,
-        name: "Tbilisi"
+        name: "თბილისი/Tbilisi"
       },
       %__MODULE__{
         id: 2,
-        name: "Batumi"
+        name: "ბათუმი/Batumi"
       },
       %__MODULE__{
         id: 3,
-        name: "Ureqi"
+        name: "რუსთავი/Rustavi"
       },
       %__MODULE__{
         id: 4,
-        name: "Qutaisi"
+        name: "ქუთაისი/Kutaisi"
+      },
+      %__MODULE__{
+        id: 5,
+        name: "ფოთი/Poti"
+      },
+      %__MODULE__{
+        id: 6,
+        name: "თელავი/Telavi"
+      },
+      %__MODULE__{
+        id: 7,
+        name: "ბაკურიანი/Bakuriani"
+      },
+      %__MODULE__{
+        id: 8,
+        name: "გუდაური/Gudauri"
       }
     ]
   end

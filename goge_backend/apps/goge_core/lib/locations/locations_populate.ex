@@ -11,7 +11,7 @@ defmodule GoGe.Core.Location.PopulateService do
   @impl GenServer
   def handle_continue(:populate_table, _) do
     GoGe.Core.Location.values()
-    |> Enum.each(fn x -> @repo.insert(x, on_conflict: :nothing) end)
+    |> Enum.each(fn x -> @repo.insert(x, on_conflict: :replace_all, conflict_target: [:id]) end)
 
     {:noreply, nil}
   end
