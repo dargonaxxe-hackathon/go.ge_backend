@@ -1,6 +1,8 @@
 defmodule GoGe.Web.BookingJSON do
   @moduledoc false
 
+  def create(%{}), do: %{success: true}
+
   def approve(%{}), do: %{success: true}
 
   def incoming(%{result: result}) do
