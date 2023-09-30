@@ -25,8 +25,11 @@ ENV DB_PASSWORD=postgres
 
 # Expose ports
 EXPOSE $PORT
+RUN apt update
+RUN apt install cpulimit
 RUN mix deps.get
 RUN mix local.hex --force
+RUN cpulimit -l 25 mix compile
 
 # Command to start the application
 CMD ["iex", "-S", "mix", "phx.server"]
