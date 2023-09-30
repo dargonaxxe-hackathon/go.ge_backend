@@ -7,15 +7,16 @@ defmodule GoGe.Web.Router do
 
   scope "/api", GoGe.Web do
     pipe_through :api
+    post "/user/", UserController, :create
     get "/locations", LocationController, :index
     post "/trip/create", TripController, :create
     post "/trip/delete", TripController, :delete
     post "/trip/lookup", TripController, :lookup
-    post "/user/", UserController, :create
+    post "/trip/published", TripController, :published
     post "/booking/incoming/", BookingController, :incoming
     post "/booking/approve/", BookingController, :approve
-    post "/trip/published", TripController, :published
     post "/booking/create/", BookingController, :create
     post "/booking/outcoming", BookingController, :outcoming
+    post "/booking/reject", BookingController, :reject
   end
 end

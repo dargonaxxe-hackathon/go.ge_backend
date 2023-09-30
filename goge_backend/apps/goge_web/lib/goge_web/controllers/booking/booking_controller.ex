@@ -16,6 +16,13 @@ defmodule GoGe.Web.BookingController do
     end
   end
 
+  def reject(conn, params) do
+    with booking_id <- params["booking_id"],
+         {:ok, _} <- GoGe.Core.reject_booking(booking_id) do
+      render(conn, :approve)
+    end
+  end
+
   def create(conn, params) do
     with passenger_id <- params["user_id"],
          trip_id <- params["trip_id"],
