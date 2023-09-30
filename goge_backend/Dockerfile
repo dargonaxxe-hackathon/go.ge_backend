@@ -25,7 +25,7 @@ ENV DB_PASSWORD=postgres
 
 # Expose ports
 EXPOSE $PORT
-
+RUN mix deps.get
 RUN mix local.hex --force
 
 # Command to start the application
