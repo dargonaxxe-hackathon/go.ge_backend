@@ -12,5 +12,6 @@ defmodule GoGe.Web.Router do
     post "/trip/delete", TripController, :delete
     post "/trip/lookup", TripController, :lookup
     post "/user/", UserController, :create
+    post "/booking/incoming/", BookingController, :incoming
   end
 end

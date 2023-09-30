@@ -10,7 +10,8 @@ defmodule GoGe.Web.TripController do
          capacity <- params["capacity"],
          wallet <- params["wallet"],
          cost <- params["cost"],
-         {:ok, result} <- GoGe.Core.create_trip(driver_id, route, departure_datetime, capacity, wallet, cost) do
+         {:ok, result} <-
+           GoGe.Core.create_trip(driver_id, route, departure_datetime, capacity, wallet, cost) do
       render(conn, :create, trip_id: result.id)
     end
   end

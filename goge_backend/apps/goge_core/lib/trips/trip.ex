@@ -7,6 +7,7 @@ defmodule GoGe.Core.Trip do
     field(:capacity, :integer)
     field(:wallet_address, :string)
     field(:cost, :string)
+    has_one(:route, GoGe.Core.Route)
 
     timestamps()
   end
